@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+	<item
+		android:id="@+id/map"
+		android:orderInCategory="1"
+		android:title="Campus Map Service" />
+	<item
+		android:id="@+id/events"
+		android:orderInCategory="2"
+		android:title="Event Notifications" />
+	<item
+		android:id="@+id/courses"
+		android:orderInCategory="3"
+		android:title="Course Info" />
+</menu>
