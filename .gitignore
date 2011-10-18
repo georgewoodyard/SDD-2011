@@ -1,8 +1,3 @@
 bin/*
 
-.classpath
-.project
-.settings/*
-gen/*
-proguard.cfg
-default.properties
+.class
