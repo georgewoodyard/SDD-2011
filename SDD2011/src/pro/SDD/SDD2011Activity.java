@@ -1,6 +1,14 @@
+/*
+ * SDD2011Activity
+ *
+ * Version 1.0
+ *
+ */
+
 package pro.SDD;
 
 import pro.SDD.R;
+
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,20 +24,26 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+/**
+ * 
+ * @author Paul Ferguson
+ * 
+ */
 public class SDD2011Activity extends ListActivity {
+	private TextView debugTv;
+	
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		String[] items = new String[] { "Campus Map", "Event Notifications", "Course Info", };
-		setListAdapter(new ArrayAdapter<String>(this, R.layout.list_item, items));
+		String[] string = new String[] { "Campus Map", "Event Notifications", "Course Info", };
+		setListAdapter(new ArrayAdapter<String>(this, R.layout.list_item, string));
 
-		ListView lv = getListView();
-		lv.setTextFilterEnabled(true);
+		ListView listview = getListView();
+		listview.setTextFilterEnabled(true);
 
-		lv.setOnItemClickListener(new OnItemClickListener() {
+		listview.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-				// When clicked, show a toast with the TextView text
 				try {
 					if (((TextView) view).getText() == "Campus Map") {
 						startActivity(new Intent(SDD2011Activity.this, CampusMap.class));
@@ -40,8 +54,8 @@ public class SDD2011Activity extends ListActivity {
 					} else
 						finish();
 
-				} catch (Exception e) {
-					e.printStackTrace();
+				} catch (Exception exception) {
+					exception.printStackTrace();
 				}
 			}
 		});
@@ -82,8 +96,7 @@ public class SDD2011Activity extends ListActivity {
 		} else {
 			this.appendMenuItemText(item);
 		}
-		// should return true if the menu item
-		// is handled
+		// should return true if the menu item is handled
 		return true;
 	}
 
@@ -98,7 +111,4 @@ public class SDD2011Activity extends ListActivity {
 		debugTv.setText(debugTv.getText() + "\n" + title);
 	}
 
-	// Empty the TextView of its contents
-
-	private TextView debugTv;
 }
