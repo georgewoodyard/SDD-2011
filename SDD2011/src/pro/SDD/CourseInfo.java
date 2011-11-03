@@ -7,6 +7,9 @@
 
 package pro.SDD;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.URL;
 import java.util.ArrayList;
 
 import android.app.ListActivity;
@@ -27,7 +30,7 @@ import android.widget.TextView;
  */
 public class CourseInfo extends ListActivity {
 	private TextView debugTv;
-	ArrayList<String> courses = new ArrayList<String>();
+	ArrayList<String> course = new ArrayList<String>();
 	ArrayList<String> courseinfo = new ArrayList<String>();
 
 	@Override
@@ -37,12 +40,27 @@ public class CourseInfo extends ListActivity {
 		setDebugTv((TextView) this.findViewById(R.id.events));
 
 		try {
-			CourseInfoParser courseinfoparser = new CourseInfoParser();
-			this.setListAdapter(new ArrayAdapter<String>(this, R.layout.list_item, courseinfoparser.getcourse()));
-			this.setListAdapter(new ArrayAdapter<String>(this, R.layout.list_item, courseinfoparser.getcourseinfo()));
+	
+			// Create a URL for the desired page
+			URL url = new URL("http://sdd2011.phpfogapp.com/courseinfo.xml");
+
+			BufferedReader bufferedreader = new BufferedReader(new InputStreamReader(url.openStream()));
+			String string;
+
+			while ((string = bufferedreader.readLine()) != null) {
+				// append to arraylist
+				course.add(string);
+				//courseinfo.add((string = bufferedreader.readLine()));
+			}
+			bufferedreader.close();
+			
+			//CourseInfoParser courseinfoparser = new CourseInfoParser();
+			//courseinfoparser.readFromWebsite();
+			this.setListAdapter(new ArrayAdapter<String>(this, R.layout.list_item, course));
+			//this.setListAdapter(new ArrayAdapter<String>(this, R.layout.list_item, courseinfoparser.getcourse()));
+			//this.setListAdapter(new ArrayAdapter<String>(this, R.layout.list_item, courseinfoparser.getcourseinfo()));
 		} catch (Exception exception) {
 		}
-
 	}
 
 	public void setDebugTv(TextView debugTv) {
