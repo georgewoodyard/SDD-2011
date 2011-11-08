@@ -1,8 +1,6 @@
 /*
  * SDD2011Activity
  *
- * Version 1.0
- *
  */
 
 package pro.SDD;
@@ -28,22 +26,27 @@ import android.widget.TextView;
  * 
  * @author Paul Ferguson
  * 
+ * @version 1.0
+ * 
  */
 public class SDD2011Activity extends ListActivity {
 	private TextView debugTv;
 	
-	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		String[] string = new String[] { "Campus Map", "Event Notifications", "Course Info", };
+		
+		String[] string = new String[] { "Campus Map", "Event Notifications",
+				"Course Info", };
+		
 		setListAdapter(new ArrayAdapter<String>(this, R.layout.list_item, string));
 
 		ListView listview = getListView();
 		listview.setTextFilterEnabled(true);
 
 		listview.setOnItemClickListener(new OnItemClickListener() {
-			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+			public void onItemClick(AdapterView<?> parent, View view, int position,
+					long id) {
 				try {
 					if (((TextView) view).getText() == "Campus Map") {
 						startActivity(new Intent(SDD2011Activity.this, CampusMap.class));
@@ -68,7 +71,8 @@ public class SDD2011Activity extends ListActivity {
 	}
 
 	@Override
-	public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
+	public void onCreateContextMenu(ContextMenu menu, View v,
+			ContextMenuInfo menuInfo) {
 		super.onCreateContextMenu(menu, v, menuInfo);
 		menu.setHeaderTitle("Sample Context Menu");
 		MenuInflater inflater = this.getMenuInflater();
