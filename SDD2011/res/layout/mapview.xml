@@ -55,9 +55,24 @@
 	</LinearLayout>
 	<com.google.android.maps.MapView
 		android:id="@+id/mapview"
+		android:layout_weight="1"
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
 		android:clickable="true"
 		android:apiKey="0FKTtN9_fJfad1mWQZh75B4W60UXURYCfNxk0JQ" />
-    
+	<LinearLayout
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical">
+		<EditText
+			android:layout_width="fill_parent"
+			android:id="@+id/location"
+			android:layout_height="wrap_content"
+			android:text="Search" />
+		<Button
+			android:id="@+id/geocodeBtn"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="Find Location" />
+	</LinearLayout>
 </LinearLayout>
