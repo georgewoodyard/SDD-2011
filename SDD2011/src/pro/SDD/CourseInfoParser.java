@@ -1,4 +1,5 @@
 /*
+ /*
  * CourseInfoParser
  *
  * Version 0.3
@@ -30,15 +31,25 @@ public class CourseInfoParser {
 		// read from site
 		try {
 			// Create a URL for the desired page
-			URL url = new URL("sdd2011.phpfogapp.com/courseinfo.xml");
+			URL url = new URL("http://sdd2011.phpfogapp.com/courseinfo.xml");
 
 			BufferedReader bufferedreader = new BufferedReader(new InputStreamReader(url.openStream()));
 			String string;
-
 			while ((string = bufferedreader.readLine()) != null) {
 				// append to arraylist
-				course.add(string);
-				courseinfo.add((string = bufferedreader.readLine()));
+				if(string.indexOf("<title>")>0)
+				{
+					string = string.replace("<title>","");
+					string = string.replace("</title>", "");
+					course.add(string);
+				}
+				if(string.indexOf("<prefix>")>0)
+				{
+					string = string.replace("<prefix>","");
+					string = string.replace("</prefix>","");
+					courseinfo.add(string);
+					
+				}
 			}
 
 			bufferedreader.close();
