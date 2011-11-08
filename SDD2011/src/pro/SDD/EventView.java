@@ -14,6 +14,7 @@ import java.util.ArrayList;
 
 import android.app.AlertDialog;
 import android.app.ListActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -56,15 +57,12 @@ public class EventView extends ListActivity {
 			// EventViewParser eventviewparser = new EventViewParser();
 			// eventviewparser.readFromWebsite();
 			this.setListAdapter(new ArrayAdapter<String>(this, R.layout.list_item, events));
-			// this.setListAdapter(new ArrayAdapter<String>(this, R.layout.list_item,
-			// eventviewparser.getevent()));
-			// this.setListAdapter(new ArrayAdapter<String>(this, R.layout.list_item,
-			// eventviewparser.geteventinfo()));
-			this.setSelection(0);
+			//this.setListAdapter(new ArrayAdapter<String>(this, R.layout.list_item, eventviewparser.getevent()));
+			//this.setListAdapter(new ArrayAdapter<String>(this, R.layout.list_item, eventviewparser.geteventinfo()));
 
+			this.setSelection(0);
 			final ListView listview = getListView();
 			listview.setTextFilterEnabled(true);
-
 			listview.setOnItemClickListener(new OnItemClickListener() {
 				// listen for click, pair event and event info (via parser, not present
 				// at the moment
@@ -79,6 +77,7 @@ public class EventView extends ListActivity {
 								adb.show();
 							}
 						}
+
 					} catch (Exception exception) {
 						exception.printStackTrace();
 					}
