@@ -1,5 +1,5 @@
-bin/*
+SDD2011/bin/*
+SDD2011/gen/*
 
-.class
-.apk
-/bin
+*.class
+*.apk
