@@ -11,20 +11,6 @@
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content">
 		<Button
-			android:id="@+id/zoomin"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:text="+"
-			android:onClick="myClickHandler"
-			android:padding="12px" />
-		<Button
-			android:id="@+id/zoomout"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:text="-"
-			android:onClick="myClickHandler"
-			android:padding="12px" />
-		<Button
 			android:id="@+id/sat"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"

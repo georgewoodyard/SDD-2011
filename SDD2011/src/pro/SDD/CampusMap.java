@@ -84,12 +84,6 @@ public class CampusMap extends MapActivity {
 
 	public void myClickHandler(View target) {
 		switch (target.getId()) {
-		case R.id.zoomin:
-			mapView.getController().zoomIn();
-			break;
-		case R.id.zoomout:
-			mapView.getController().zoomOut();
-			break;
 		case R.id.sat:
 			mapView.setSatellite(true);
 			break;

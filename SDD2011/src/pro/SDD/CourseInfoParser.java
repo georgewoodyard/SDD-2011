@@ -41,12 +41,15 @@ public class CourseInfoParser {
 				{
 					string = string.replace("<title>","");
 					string = string.replace("</title>", "");
+					string = string.trim();
 					course.add(string);
 				}
 				if(string.indexOf("<prefix>")>0)
 				{
 					string = string.replace("<prefix>","");
 					string = string.replace("</prefix>","");
+					string = string.trim();
+					
 					courseinfo.add(string);
 					
 				}
