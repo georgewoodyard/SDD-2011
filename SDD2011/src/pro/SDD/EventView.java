@@ -15,6 +15,9 @@ import java.util.ArrayList;
 import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -86,6 +89,26 @@ public class EventView extends ListActivity {
 		}
 	}
 
+	private void refreshEventView() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean onCreateOptionsMenu(Menu menu) {
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.eventview_menu, menu);
+		return true;
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		if (item.getItemId() == R.id.refresh) {
+			refreshEventView();
+		}
+		// should return true if the menu item is handled
+		return true;
+	}
+	
 	public void setDebugTv(TextView debugTv) {
 		this.debugTv = debugTv;
 	}

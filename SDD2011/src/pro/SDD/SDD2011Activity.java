@@ -63,7 +63,7 @@ public class SDD2011Activity extends ListActivity {
 			}
 		});
 	}
-
+/**
 	public boolean onCreateOptionsMenu(Menu menu) {
 		MenuInflater inflater = getMenuInflater();
 		inflater.inflate(R.menu.my_menu, menu);
@@ -114,5 +114,5 @@ public class SDD2011Activity extends ListActivity {
 		String title = menuItem.getTitle().toString();
 		debugTv.setText(debugTv.getText() + "\n" + title);
 	}
-
+**/
 }
